@@ -1,3 +1,4 @@
+// (Ensure this file contains the full code provided in the first response)
 "use client"
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
 import Header from "./components/Header"
