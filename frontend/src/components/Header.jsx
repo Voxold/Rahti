@@ -1,20 +1,18 @@
-"use client"
-
-import { useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { useAuth } from "../context/AuthContext"
-import useScrollDirection from "../hooks/useScrollDirection"
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import useScrollDirection from "../hooks/useScrollDirection";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { user, logout } = useAuth()
-  const navigate = useNavigate()
-  const scrollDirection = useScrollDirection()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+  const scrollDirection = useScrollDirection();
 
   const handleLogout = () => {
-    logout()
-    navigate("/")
-  }
+    logout();
+    navigate("/");
+  };
 
   return (
     <header
@@ -37,7 +35,9 @@ const Header = () => {
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
                   RA7TI
                 </h1>
-                <p className="text-xs text-gray-500 -mt-1">Healthcare at Home</p>
+                <p className="text-xs text-gray-500 -mt-1">
+                  Healthcare at Home
+                </p>
               </div>
             </Link>
 
@@ -82,9 +82,13 @@ const Header = () => {
                     className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-emerald-500 to-blue-600 text-white rounded-full hover:shadow-lg transition-all duration-300"
                   >
                     <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                      <span className="text-sm font-semibold">{user.name.charAt(0)}</span>
+                      <span className="text-sm font-semibold">
+                        {user.name.charAt(0)}
+                      </span>
                     </div>
-                    <span className="hidden sm:block font-medium">{user.name}</span>
+                    <span className="hidden sm:block font-medium">
+                      {user.name}
+                    </span>
                   </Link>
                   <button
                     onClick={handleLogout}
@@ -109,13 +113,23 @@ const Header = () => {
               >
                 <div className="w-6 h-6 flex flex-col justify-center items-center">
                   <span
-                    className={`bg-gray-600 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isMenuOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"}`}
+                    className={`bg-gray-600 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
+                      isMenuOpen
+                        ? "rotate-45 translate-y-1"
+                        : "-translate-y-0.5"
+                    }`}
                   ></span>
                   <span
-                    className={`bg-gray-600 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isMenuOpen ? "opacity-0" : "opacity-100"}`}
+                    className={`bg-gray-600 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${
+                      isMenuOpen ? "opacity-0" : "opacity-100"
+                    }`}
                   ></span>
                   <span
-                    className={`bg-gray-600 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isMenuOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"}`}
+                    className={`bg-gray-600 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
+                      isMenuOpen
+                        ? "-rotate-45 -translate-y-1"
+                        : "translate-y-0.5"
+                    }`}
                   ></span>
                 </div>
               </button>
@@ -125,7 +139,9 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         <div
-          className={`md:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"} overflow-hidden`}
+          className={`md:hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+          } overflow-hidden`}
         >
           <div className="px-4 py-4 bg-white/90 backdrop-blur-sm border-t border-gray-100">
             <nav className="flex flex-col space-y-3">
@@ -158,7 +174,7 @@ const Header = () => {
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
